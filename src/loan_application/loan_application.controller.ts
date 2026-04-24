@@ -6,10 +6,13 @@ import {
   Param,
   Post,
   Query,
+  UseGuards,
 } from '@nestjs/common';
 import { LoanApplicationService } from './loan_application.service';
 import { CreateLoanApplicationDto } from './dto/create-loan.dto';
 import { Roles } from '../common/decorators/roles.decorator';
+import { JwtAuthGuard } from '../common/guards/jwt-auth.guard';
+import { RolesGuard } from '../common/guards/roles.guard';
 
 const BACKEND_PUCLIC_URL = '/api/v1/loans';
 
@@ -35,6 +38,7 @@ export class LoanApplicationController {
   }
 
   @Get('applications')
+  @UseGuards(JwtAuthGuard, RolesGuard)
   @Roles('admin')
   async getAllApplications(
     @Query('date') date?: string,
@@ -58,6 +62,7 @@ export class LoanApplicationController {
   }
 
   @Get(':id')
+  @UseGuards(JwtAuthGuard, RolesGuard)
   @Roles('admin')
   async getById(@Param('id') id: string) {
     try {
