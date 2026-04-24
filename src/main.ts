@@ -12,8 +12,8 @@ async function bootstrap() {
   app.enableCors({
     origin: [
       'http://localhost:3000',
-      'https://lendingfinance.site',
-      'https://www.lendingfinance.site',
+      'https://prosper-finance-frontend.vercel.app',
+      'https://prosper-finance-frontend.vercel.app',
     ],
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
     credentials: true,
