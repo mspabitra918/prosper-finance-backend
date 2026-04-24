@@ -9,7 +9,7 @@ import {
 } from '@nestjs/common';
 import { LoanApplicationService } from './loan_application.service';
 import { CreateLoanApplicationDto } from './dto/create-loan.dto';
-import { Roles } from 'src/common/decorators/roles.decorator';
+import { Roles } from '../common/decorators/roles.decorator';
 
 const BACKEND_PUCLIC_URL = '/api/v1/loans';
 
